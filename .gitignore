@@ -1,0 +1,12 @@
+# Ignore folder dist and node_modules
+dist/
+node_modules/
+
+# Ignore file src/css/input.css
+src/css/input.css
+
+# Ignore package lock files
+package-lock.json
+
+# Ignore Tailwind CSS configuration file
+tailwind.config.js
