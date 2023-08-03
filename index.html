@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="./src/css/build.css" rel="stylesheet" />
+  <title>Foody-Woody</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="font-Inter bg-[url('../src/images/bg.svg')] bg-no-repeat bg-cover">
+  <!-- NAVBAR SECTION -->
+  <header class="w-full relative">
+    <nav
+      class="w-full px-4 py-6 flex justify-between fixed z-50 backdrop-blur-sm border-b border-slate-300 rounded-bl rounded-br md:items-center md:justify-evenly md:py-2">
+      <a href="#home" class="font-Caveat text-lg text-center text-primary-500 lg:text-2xl">
+        Foody-Woody
+      </a>
+
+      <ul
+        class="w-1/2 py-4 flex flex-col items-center gap-2 absolute translate-x-max translate-y-14 transition-all bg-slate-100 shadow-inner shadow-slate-200 rounded md:static md:translate-x-0 md:translate-y-0 md:w-fit md:flex-row md:shadow-none md:bg-transparent"
+        id="navigasi">
+        <li class="w-full flex justify-end px-4 md:hidden">
+          <button onclick="closeBtn()">
+            <i data-feather="x" class="text-slate-800 hover:text-primary-500 transition duration-300 delay-100"></i>
+          </button>
+        </li>
+        <li><a href="#home" class="listNav">Home</a></li>
+        <li><a href="#about" class="listNav">About</a></li>
+        <li><a href="#menu" class="listNav">Menu</a></li>
+        <li><a href="#order" class="listNav">Order</a></li>
+        <li><a href="#location" class="listNav">Location</a></li>
+      </ul>
+
+      <div class="w-1/2 flex gap-4 justify-end md:w-1/4 md:justify-evenly">
+        <button class="text-slate-800 hover:text-primary-500 transition duration-300 delay-100">
+          Hi,
+          <span>Brother</span>
+        </button>
+
+        <button class="text-slate-800 hover:text-primary-500 transition duration-300 delay-100 relative"
+          id="cartButton">
+          <i class="w-6 h-6" data-feather="shopping-cart"></i>
+          <span class="w-2 h-2 bg-red-500 rounded absolute top-0 right-0 text-xs opacity-0"></span>
+        </button>
+
+        <button class="text-slate-800 hover:text-primary-500 transition duration-300 delay-100 md:hidden"
+          onclick="hambtn()">
+          <i class="w-6 h-6" data-feather="menu"></i>
+        </button>
+      </div>
+
+      <div class="w-full h-0 absolute left-0 top-20 overflow-scroll transition-all md:px-20" id="cartWrapper">
+        <div class="w-full h-fit bg-slate-200 z-10 my-20 mx-auto p-6 rounded shadow lg:w-1/2">
+          <div class="py-2 border-b border-slate-800 text-slate-700 text-center">
+            <h1>Your Cart</h1>
+          </div>
+
+          <div class="py-6 flex flex-col gap-2" id="cartCardWrapper">
+            <div class="w-full shadow-md rounded px-4 py-2 flex justify-center bg-slate-100" id="totalWrapper">
+              <h1 class="w-full text-center" id="noItems">No Items</h1>
+              <h1 class="hidden" id="total">
+                Total =
+                <span>0</span>
+              </h1>
+            </div>
+
+            <div class="w-full flex justify-center gap-4 text-slate-200">
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-2 rounded shadow transition duration-300 delay-100"
+                id="cancelCart">
+                Cancel
+              </button>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-2 rounded shadow transition duration-300 delay-100 hidden"
+                id="checkout">
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- NAVBAR SECTION END -->
+
+  <!-- HOME SECTION END -->
+  <section class="pt-28" id="home">
+    <div class="px-6 flex flex-col gap-6 md:px-20 lg:flex-row">
+      <div class="text-slate-700 text-center pb-28 md:pb-20 lg:w-1/2">
+        <h1 class="font-Caveat text-4xl text-primary-500 pb-6 font-semibold md:pb-12 lg:text-5xl">
+          Foody-Woody
+        </h1>
+        <h1 class="text-2xl pb-6 px-4 md:px-12 md:pb-12 lg:pb-6">
+          We are always there anytime, anywhere, we are
+          <span class="font-Caveat text-3xl text-primary-500">
+            Foody-Woody
+          </span>
+        </h1>
+        <p class="text-slate-600 pb-6 md:px-12 md:pb-12">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+          soluta voluptate voluptas, odit vitae nam ratione necessitatibus quo
+          ea commodi quas sit eveniet exercitationem excepturi voluptates in,
+          facilis dolor fugiat!
+        </p>
+        <ul class="flex gap-2 justify-center items-center w-full pb-6">
+          <li class="w-full flex justify-center items-center">
+            <a class="w-4/5 rounded-full py-2 flex justify-center items-center text-slate-200 bg-primary-500 transition ease-in-out duration-300 delay-100 shadow shadow-primary-400 hover:bg-primary-300 md:w-3/5"
+              href="#order">
+              Order
+            </a>
+          </li>
+          <li class="w-full flex justify-center items-center">
+            <a class="w-4/5 rounded-full py-2 flex justify-center items-center text-slate-200 bg-primary-500 transition ease-in-out duration-300 delay-100 shadow shadow-primary-400 hover:bg-primary-300 md:w_-3/5"
+              href="#about">
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Container -->
+      <div class="w-full h-[450px] lg:h-[500px] flex relative lg:w-1/2">
+        <!-- Wrapper content -->
+        <div class="w-full absolute z-10 flex flex-col items-center -translate-y-16 lg:translate-y-0">
+          <!-- Judul Content -->
+          <h1 class="pb-16 font-Caveat text-4xl text-primary-500 font-semibold md:pb-12">
+            BEST SELLER
+          </h1>
+          <!-- Wrapper Card -->
+          <div class="w-full flex justify-center flex-wrap gap-2 md:px-28 lg:px-12">
+
+            <div
+              class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+              <img src="./src/images/card/Hamburger.png" alt="Hamburger"
+                class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+              <div
+                class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+                <h1 class="text-slate-800 text-lg font-semibold productName">
+                  Hamburger
+                </h1>
+                <h1 class="text-slate-800 text-md price">Rp. 15.000</h1>
+                <div class="w-full flex justify-between px-2">
+                  <div class="w-3/4 flex justify-around">
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                      <i data-feather="minus" class="w-3 h-3"></i>
+                    </button>
+                    <h1 class="text-slate-800 quantity">0</h1>
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                      <i data-feather="plus" class="w-3 h-3"></i>
+                    </button>
+                  </div>
+                  <button
+                    class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                    <i data-feather="shopping-cart" class="w-3 h-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+              <img src="./src/images/card/ramen.png" alt="ramen" class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+              <div
+                class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+                <h1 class="text-slate-800 text-lg font-semibold productName">
+                  Ramen
+                </h1>
+                <h1 class="text-slate-800 text-md price">Rp. 12.000</h1>
+                <div class="w-full flex justify-between px-2">
+                  <div class="w-3/4 flex justify-around">
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                      <i data-feather="minus" class="w-3 h-3"></i>
+                    </button>
+                    <h1 class="text-slate-800 quantity">0</h1>
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                      <i data-feather="plus" class="w-3 h-3"></i>
+                    </button>
+                  </div>
+                  <button
+                    class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                    <i data-feather="shopping-cart" class="w-3 h-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+              <img src="./src/images/card/sushi.png" alt="Sushi" class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+              <div
+                class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+                <h1 class="text-slate-800 text-lg font-semibold productName">Sushi</h1>
+                <h1 class="text-slate-800 text-md price">Rp. 18.000</h1>
+                <div class="w-full flex justify-between px-2">
+                  <div class="w-3/4 flex justify-around">
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                      <i data-feather="minus" class="w-3 h-3"></i>
+                    </button>
+                    <h1 class="text-slate-800 quantity">0</h1>
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                      <i data-feather="plus" class="w-3 h-3"></i>
+                    </button>
+                  </div>
+                  <button
+                    class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                    <i data-feather="shopping-cart" class="w-3 h-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-[150px] h-[200px] rounded-md flex flex-col justify-end items-center relative overflow-hidden hover:scale-105 transition duration-300 delay-100">
+              <img src="./src/images/card/chocolate-cake.png" alt="Chocolate-cake"
+                class="absolute z-10 -translate-y-24 drop-shadow-lg h-36 w-32" />
+              <div
+                class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+                <h1 class="text-slate-800 text-lg font-semibold productName">
+                  Chocolate-cake
+                </h1>
+                <h1 class="text-slate-800 text-md price">Rp. 12.000</h1>
+                <div class="w-full flex justify-between px-2">
+                  <div class="w-3/4 flex justify-around">
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                      <i data-feather="minus" class="w-3 h-3"></i>
+                    </button>
+                    <h1 class="text-slate-800 quantity">0</h1>
+                    <button
+                      class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                      <i data-feather="plus" class="w-3 h-3"></i>
+                    </button>
+                  </div>
+                  <button
+                    class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                    <i data-feather="shopping-cart" class="w-3 h-3"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full flex justify-end items-end">
+          <span
+            class="w-3/4 md:w-4/6 lg:h-[90%] bg-gradient-to-r from-slate-50 via-primary-200 to-primary-300 rounded-xl opacity-70"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- HOME SECTION END -->
+
+  <!-- ABOUT  AND LOCATION SECTION -->
+  <section class="pt-28" id="about">
+    <div class="w-full px-6 lg:flex lg:gap-4">
+      <!-- ABOUT -->
+      <div class="w-full lg:w-1/2">
+        <h1 class="font-Caveat text-4xl text-center text-primary-500 font-semibold md:pb-12 lg:text-5xl">
+          About Us
+        </h1>
+
+        <div
+          class="py-6 px-2 flex flex-col justify-center items-center gap-4 md:flex-row md:flex-wrap backdrop-blur-sm shadow shadow-slate-400 rounded-md">
+          <div
+            class="w-full min-h-[160px] md:min-h-[180px] md:w-2/5 px-4 rounded-md shadow shadow-slate-700 bg-transparent flex flex-col justify-evenly items-center hover:scale-105 transisition duration-300 delay-100">
+            <h1 class="text-xl text-slate-700 pb-2 border-b border-slate-800">
+              Who we are?
+            </h1>
+            <p class="text-center text-sm pb-2 border-b border-slate-800">
+              we are a cafe that can deliver your order without you having to
+              leave the house, click the link below to get closer to us.
+            </p>
+            <a class="text-slate-600 cursor-pointer hover:text-primary-500 transition duration-300 delay-100">
+              Get closer...
+            </a>
+          </div>
+          <div
+            class="w-full min-h-[160px] md:min-h-[180px] md:w-2/5 px-4 rounded-md shadow shadow-slate-700 bg-transparent flex flex-col justify-evenly items-center hover:scale-105 transisition duration-300 delay-100">
+            <h1 class="text-xl text-slate-700 pb-2 border-b border-slate-800">
+              Why us?
+            </h1>
+            <p class="text-center text-sm pb-2">
+              because we are fast, anywhere, anytime, and of course we are
+              more reliable than your boyfriend.
+            </p>
+          </div>
+
+          <div
+            class="w-full min-h-[160px] md:min-h-[180px] md:w-2/5 px-4 rounded-md shadow shadow-slate-700 bg-transparent flex flex-col justify-evenly items-center hover:scale-105 transisition duration-300 delay-100">
+            <h1 class="text-xl text-slate-700 pb-2 border-b border-slate-800">
+              About the Foods
+            </h1>
+            <p class="text-center text-sm pb-2">
+              We have chefs with the best quality besides that the food
+              ingredients we have are also of the best quality, cleanliness is
+              also very well maintained here.
+            </p>
+          </div>
+
+          <div
+            class="w-full min-h-[160px] md:min-h-[180px] md:w-2/5 px-4 rounded-md shadow shadow-slate-700 bg-transparent flex flex-col justify-evenly items-center hover:scale-105 transisition duration-300 delay-100">
+            <h1 class="text-xl text-slate-700 pb-2 border-b border-slate-800">
+              Location
+            </h1>
+            <p class="text-center text-sm pb-2 border-b border-slate-800">
+              Apart from serving online purchases, we also have an offline
+              place for those of you who want to come and enjoy our menu with
+              your family.
+            </p>
+            <a class="text-slate-600 cursor-pointer hover:text-primary-500 transition duration-300 delay-100">
+              See Location...
+            </a>
+          </div>
+        </div>
+
+        <div class="flex gap-4 md:gap-12 justify-center items-center w-full py-4">
+          <p class="text-slate-500 text-lg">Get closer with us:</p>
+          <a class="" href="#">
+            <i class="w-8 h-8 opacity-50 hover:opacity-100 hover:text-primary-500" data-feather="facebook"></i>
+          </a>
+          <a class="" href="#">
+            <i class="w-8 h-8 opacity-50 hover:opacity-100 hover:text-primary-500" data-feather="instagram"></i>
+          </a>
+          <a class="" href="#">
+            <i class="w-8 h-8 opacity-50 hover:opacity-100 hover:text-primary-500" data-feather="twitter"></i>
+          </a>
+        </div>
+      </div>
+      <!-- LOCATION -->
+      <div class="h-[500px] w-full py-6 lg:w-1/2 flex flex-col gap-4 px-6 md:px-28 lg:px-12" id="location">
+        <h1 class="font-Caveat text-4xl text-center text-primary-500 font-semibold pb-4 md:pb-12 lg:pb-6 lg:text-5xl">
+          Location
+        </h1>
+        <p class="text-slate-600">
+          Apart from serving online purchases, we also have an offline place
+          for those of you who want to come and enjoy our menu with your
+          family.
+        </p>
+        <p class="text-slate-600">
+          See the map below for a more detailed location.
+        </p>
+        <div class="w-full h-[200px] lg:h-[360px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16858886.629529595!2d0!3d-75.05434995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa4b9967b3390754b%3A0x6e52be1f740f2075!2sAntartika!5e0!3m2!1sid!2sid!4v1690123254509!5m2!1sid!2sid"
+            style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            class="h-full w-full rounded shadow-md shadow-slate-500"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ABOUT SECTION END -->
+
+  <!-- MENU SECTION -->
+  <section class="pt-28" id="menu">
+    <div class="w-full px-4">
+      <h1 class="font-Caveat text-4xl text-center text-primary-500 font-semibold md:pb-12 lg:pb-0 lg:text-5xl">
+        Menu
+      </h1>
+      <div class="flex flex-wrap justify-evenly py-16 lg:px-44">
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/Hamburger.png" alt="Hamburger"
+            class="absolute z-10 scale-90 -translate-y-24 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">Hamburger</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 15.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/ramen.png" alt="ramen"
+            class="absolute z-10 scale-90 -translate-y-24 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">Ramen</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 12.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/sushi.png" alt="Sushi" class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">Sushi</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 18.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end items-center relative overflow-hidden hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/chocolate-cake.png" alt="Chocolate-cake"
+            class="absolute z-10 -translate-y-24 drop-shadow-lg h-36 w-32" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">
+              Chocolate-cake
+            </h1>
+            <h1 class="text-slate-700 text-md price">Rp. 12.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative overflow-hidden hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/donut.png" alt="Donut" class="absolute z-10 -translate-y-12 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">Donut</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 5.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/spaggeti.png" alt="spaggeti"
+            class="absolute z-10 -translate-y-16 scale-75 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">spaggeti</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 25.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/hotdog.png" alt="hotdog" class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">hotdog</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 12.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/meatball.png" alt="meatball" class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">meatball</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 20.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/pizza.png" alt="pizza" class="absolute z-10 -translate-y-24 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">pizza</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 35.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="w-[150px] h-[200px] rounded-md flex flex-col justify-end relative hover:scale-105 transition duration-300 delay-100">
+          <img src="./src/images/card/steak.png" alt="steak"
+            class="absolute z-10 -translate-y-12 rotate-90 scale-75 drop-shadow-lg" />
+          <div
+            class="w-full h-3/4 pb-2 rounded-lg flex flex-col justify-end items-center gap-2 bg-gradient-to-b from-primary-200 to-primary-400 shadow shadow-slate-700">
+            <h1 class="text-slate-700 text-lg font-semibold productName">steak</h1>
+            <h1 class="text-slate-700 text-md price">Rp. 45.000</h1>
+            <div class="w-full flex justify-between px-2">
+              <div class="w-3/4 flex justify-around">
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 minusBtn">
+                  <i data-feather="minus" class="w-3 h-3"></i>
+                </button>
+                <h1 class="text-slate-800 quantity">0</h1>
+                <button
+                  class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 plusBtn">
+                  <i data-feather="plus" class="w-3 h-3"></i>
+                </button>
+              </div>
+              <button
+                class="bg-primary-500 hover:bg-primary-300 py-1 px-1 rounded-full border border-primary-100 hover:border-primary-500 shadow shadow-primary-100 transition duration-300 delay-100 addToCart">
+                <i data-feather="shopping-cart" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MENU SECTION END -->
+
+  <!-- LOGIN TO ORDER -->
+  <section class="py-28" id="order">
+    <div class="w-full px-6 flex flex-col gap-2 md:items-center lg:flex-row lg:gap-4">
+      <div class="w-full flex flex-col gap-4 md:w-1/2 lg:w-2/5 lg:gap-2">
+        <h1 class="font-Caveat text-4xl text-center text-primary-500 font-semibold md:pb-12 lg:text-5xl">
+          How to Order
+        </h1>
+
+        <div
+          class="py-6 px-2 flex flex-col justify-center items-center gap-4 md:flex-row md:flex-wrap backdrop-blur-sm shadow shadow-slate-400 rounded-md">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            doloremque rerum velit fuga error mollitia pariatur commodi
+            exercitationem alias ipsum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            doloremque rerum velit fuga error mollitia pariatur commodi
+            exercitationem alias ipsum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            doloremque rerum velit fuga error mollitia pariatur commodi
+            exercitationem alias ipsum.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="h-fit w-full py-4 px-2 flex justify-center rounded shadow-inner shadow-slate-400 backdrop-blur-sm md:w-3/5">
+        <div class="h-full w-full flex flex-col gap-8 lg:w-4/6 overflow-hidden transition-all" id="loginCard">
+          <h1 class="text-4xl text-center text-primary-500 font-semibold md:pb-12 lg:text-5xl">
+            Login
+          </h1>
+
+          <form class="h-3/5 w-full flex flex-col justify-center gap-4 px-4">
+            <label for="loginName" class="text-slate-700 flex flex-col gap-2">
+              <span>Name:</span>
+              <input type="text" id="loginName"
+                class="px-2 py-2 rounded bg-transparent shadow-inner shadow-slate-300 border border-slate-300"
+                placeholder="Name" />
+            </label>
+            <label for="loginPass" class="text-slate-700 flex flex-col gap-2">
+              <span>Password:</span>
+              <input type="text" id="loginPass"
+                class="px-2 py-2 rounded bg-transparent shadow-inner shadow-slate-300 border border-slate-300"
+                placeholder="Password" />
+            </label>
+            <button type="submit" class="mx-20 py-1 bg-primary-500 rounded text-slate-300 hover:opacity-70">
+              Login
+            </button>
+            <span class="text-xs text-slate-600 opacity-70 text-center">
+              Don't have account?
+              <button class="underline text-primary-500 hover:text-primary-700" onclick="return changeCard()"
+                type="button">
+                Click here
+              </button>
+              to register.
+            </span>
+          </form>
+        </div>
+
+        <div class="h-fit w-full flex-col gap-2 lg:w-4/6 overflow-hidden hidden transition-all" id="registerCard">
+          <h1 class="text-3xl text-center text-primary-500 font-semibold md:pb-12 lg:text-5xl">
+            Register
+          </h1>
+
+          <form class="h-fit w-full flex flex-col justify-center gap-2 px-4">
+            <label for="loginName" class="text-slate-700 flex flex-col gap-1">
+              <span>Name:</span>
+              <input type="text" id="loginName"
+                class="px-2 py-2 rounded bg-transparent shadow-inner shadow-slate-300 border border-slate-300"
+                placeholder="Name" />
+            </label>
+            <label for="loginNumber" class="text-slate-700 flex flex-col gap-1">
+              <span>Email:</span>
+              <input type="email" id="loginEmail"
+                class="px-2 py-2 rounded bg-transparent shadow-inner shadow-slate-300 border border-slate-300"
+                placeholder="Email" />
+            </label>
+            <label for="loginNumber" class="text-slate-700 flex flex-col gap-1">
+              <span>Number phone:</span>
+              <input type="tel" id="loginNumber"
+                class="px-2 py-2 rounded bg-transparent shadow-inner shadow-slate-300 border border-slate-300"
+                placeholder="Number" />
+            </label>
+            <label for="loginPass" class="text-slate-700 flex flex-col gap-1">
+              <span>Password:</span>
+              <input type="text" id="loginPass"
+                class="px-2 py-2 rounded bg-transparent shadow-inner shadow-slate-300 border border-slate-300"
+                placeholder="Password" />
+            </label>
+            <button type="submit" class="mx-20 py-1 bg-primary-500 rounded text-slate-300 hover:opacity-70">
+              Register
+            </button>
+            <span class="text-xs text-slate-600 opacity-70 text-center">
+              Already have account?
+              <button class="underline text-primary-500 hover:text-primary-700" onclick="return changeCard()">
+                Click here
+              </button>
+              to login.
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- LOGIN TO ORDER END -->
+
+  <!-- FOOTER -->
+  <footer class="py-16 px-4 bg-slate-900 text-slate-400 md:px-16">
+    <div class="w-full flex flex-col items-center gap-12">
+      <div class="flex flex-col items-center gap-4">
+        <h1 class="py-2 font-semibold text-xl">Navigation</h1>
+        <div class="flex justify-center flex-wrap gap-12">
+          <a href="#home" class="underline hover:text-slate-600 py-2">Home</a>
+          <a href="#about" class="underline hover:text-slate-600 py-2">
+            About
+          </a>
+          <a href="#menu" class="underline hover:text-slate-600 py-2">Menu</a>
+          <a href="#order" class="underline hover:text-slate-600 py-2">
+            Order
+          </a>
+          <a href="#home" class="underline hover:text-slate-600 w-full flex justify-center gap-1">
+            Back to top
+            <i data-feather="arrow-up-circle" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center lg:w-3/5">
+        <div class="w-2/5 flex flex-col gap-4">
+          <h1 class="py-2 font-semibold text-lg">Follow Us:</h1>
+          <span class="flex gap-1">
+            <a href="#home" class="underline hover:text-slate-600 flex gap-1">
+              <i data-feather="facebook"></i>
+            </a>
+            <a href="#home" class="underline hover:text-slate-600 flex gap-1">
+              <i data-feather="instagram"></i>
+            </a>
+            <a href="#home" class="underline hover:text-slate-600 flex gap-1">
+              <i data-feather="twitter"></i>
+            </a>
+          </span>
+        </div>
+
+        <div class="w-3/5 h-fit bg-slate-600 p-2 rounded shadow-slate-100">
+          <div class="flex justify-between items-center">
+            <h1 class="font-semibold text-lg">Images source</h1>
+            <button class="border-l px-2 hover:text-slate-800" onclick="return imgSource()">
+              <i data-feather="chevron-down"></i>
+            </button>
+          </div>
+
+          <div class="h-0 flex flex-col flex-wrap gap-1 overflow-hidden transition-all" id="imgSourceWrapper">
+            <a href="https://unsplash.com/s/photos/sushi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              1. Sushi
+            </a>
+            <a href="https://unsplash.com/s/photos/ramen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              2. Ramenn
+            </a>
+            <a href="https://unsplash.com/s/photos/dessert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              3. Chocolate Cake
+            </a>
+
+            <a href="https://unsplash.com/s/photos/hamburger?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              4. Hamburger
+            </a>
+
+            <a href="https://unsplash.com/s/photos/steak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              5. Steak
+            </a>
+
+            <a href="https://unsplash.com/s/photos/udon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              6. Spagetthi
+            </a>
+
+            <a href="https://unsplash.com/s/photos/pizza-slice?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              7.pizza
+            </a>
+
+            <a href="https://unsplash.com/s/photos/hotdog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              8.Hotdog
+            </a>
+
+            <a href="https://unsplash.com/s/photos/meatball?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              9. Meatball
+            </a>
+
+            <a href="https://unsplash.com/s/photos/dessert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+              class="underline hover:text-slate-800 py-2">
+              10. Donut
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full flex justify-center">
+        <p>
+          Created by
+          <a href="#" class="underline hover:text-slate-600">Wisanggeni</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script>
+    feather.replace();
+  </script>
+  <script src="./src/js/main.js"></script>
+</body>
+
+</html>
